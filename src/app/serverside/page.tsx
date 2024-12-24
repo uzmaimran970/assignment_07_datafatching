@@ -1,5 +1,5 @@
 
-import Navbar from "../component/navbar";
+
 
 async function fetchBooks() {
   const res = await fetch("https://simple-books-api.glitch.me/books/");
@@ -14,7 +14,7 @@ export default async function ServerPage() {
 
   return (
     <div>
-      <Navbar />
+  
       <div className="container mx-auto p-4">
         <h1 className="text-2xl font-bold mb-6 text-center">
           Server-Side Data Fetching

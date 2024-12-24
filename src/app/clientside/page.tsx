@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Navbar from "../component/navbar";
 
 
 type Product = {
@@ -18,12 +17,13 @@ type Product = {
 };
 
 export default function ClientPage() {
-  const [products, setProducts] = useState<Product[]>([]); // Define the type for products
+  const [products, setProducts] = useState<Product[]>([]); 
 
   useEffect(() => {
     async function fetchData() {
       const res = await fetch("https://fakestoreapi.com/products");
-      const data: Product[] = await res.json(); // Ensure TypeScript knows the response type
+      console.log(res)
+      const data: Product[] = await res.json();
       setProducts(data);
     }
     fetchData();
@@ -31,11 +31,12 @@ export default function ClientPage() {
 
   return (
     <div>
-      <Navbar />
+      
+      
       <div className="container mx-auto p-4">
-        <h1 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">
-          Client-Side Data Fetching
-        </h1>
+      <h1 className="text-2xl font-bold bg-gradient-to-r from-red-800 to-red-500 text-transparent bg-clip-text text-center">
+    Client-Side Data Fetching
+  </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map((product) => (
             <div
